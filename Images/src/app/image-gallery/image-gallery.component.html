@@ -1,0 +1,23 @@
+<div class="image-gallery">
+    <h1 class="head">Image Gallery</h1>
+    <div class="image-form">
+      <input type="file" (change)="handleFileInput($event)" multiple>
+      <button (click)="uploadImages()">Upload</button>
+    </div>
+    <ul class="image-list">
+      <li *ngFor="let image of images | async" class="image-list-items">
+        <div class="image-item">
+          <div class="image-container" (click)="viewImageFullSize(image.id)">
+            <img [src]="getImageUrl(image.file_path)" alt="image">
+          </div>
+          <div class="image-info">
+            <p id="meow">File Name: {{ image.file_name }}</p>
+            <p>Upload Date: {{ image.upload_date }}</p>
+            <button (click)="deleteImage(image.id)">Delete</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
