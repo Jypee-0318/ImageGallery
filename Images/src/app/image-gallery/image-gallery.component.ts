@@ -2,20 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ImageService } from '../services/image_gallery.service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-image-gallery',
   templateUrl: './image-gallery.component.html',
   styleUrls: ['./image-gallery.component.css'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, MatSnackBarModule]
 })
 export class ImageGalleryComponent implements OnInit {
   images: Observable<any> = of([]);
   selectedFiles: FileList | null = null;
+  selectedImage: string | null = null;
   baseUrl: string = 'http://localhost/uploads/';
 
-  constructor(private imageService: ImageService) { }
+  constructor(private imageService: ImageService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getImages();
@@ -37,9 +39,17 @@ export class ImageGalleryComponent implements OnInit {
       for (let i = 0; i < this.selectedFiles.length; i++) {
         const file = this.selectedFiles.item(i);
         if (file) {
+          if (file.size > 50000000) { // 50 MB limit
+            this.snackBar.open('File size exceeds the 50 MB limit.', 'Close', { duration: 4000 });
+            continue;
+          }
           this.imageService.uploadImage(file).subscribe((response: any) => {
             console.log('Upload response:', response);
+            this.snackBar.open('Image uploaded successfully!', 'Close', { duration: 4000 });
             this.getImages();
+          }, error => {
+            console.error('Upload error:', error);
+            this.snackBar.open('Image upload failed.', 'Close', { duration: 4000 });
           });
         }
       }
@@ -49,7 +59,11 @@ export class ImageGalleryComponent implements OnInit {
   deleteImage(id: number): void {
     this.imageService.deleteImage(id).subscribe((response: any) => {
       console.log('Delete response:', response);
+      this.snackBar.open('Image deleted successfully!', 'Close', { duration: 4000 });
       this.getImages();
+    }, error => {
+      console.error('Delete error:', error);
+      this.snackBar.open('Failed to delete image.', 'Close', { duration: 4000 });
     });
   }
 
@@ -57,30 +71,11 @@ export class ImageGalleryComponent implements OnInit {
     return this.baseUrl + filePath;
   }
 
-  viewImageFullSize(id: number): void {
-    this.imageService.getImageById(id).subscribe((data: any) => {
-        console.log(data);
-        if (data && data.file_path) {
-        const modal = document.getElementById("imageModal") as HTMLElement;
-        const modalImg = document.getElementById("modalImage") as HTMLImageElement;
-        modal.style.display = "block";
-        modalImg.src = this.getImageUrl(data.file_path);
-        modalImg.style.maxWidth = "100%";
-        modalImg.style.maxHeight = "100%";
-        modalImg.style.objectFit = "contain";
-        modalImg.style.width = "auto";
-        modalImg.style.height = "auto";
-      } else {
-        console.error("Image not found.");
-        // You may want to display an error message to the user here
-      }
-    }, error => {
-        console.error('Error fetching image:', error);
-      });
+  openPreview(imgUrl: string): void {
+    this.selectedImage = imgUrl;
   }
-  
-  closeModal(): void {
-    const modal = document.getElementById("imageModal") as HTMLElement;
-    modal.style.display = "none";
+
+  closePreview(): void {
+    this.selectedImage = null;
   }
 }
