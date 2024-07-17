@@ -5,7 +5,8 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 10px;
+    width: 100px;
+    
     /* adjust the width as needed */
 }
 .head{
@@ -17,9 +18,9 @@
 }
 
 .image-container {
-  width: 50px;
+  width: 10px;
   height: 50px;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .image-container img {
@@ -39,8 +40,9 @@
 .image-info {
   margin-bottom: 10px;
   border-radius: 10px;
-  order: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px;
+  
+  
 }
 
 #file-name {
@@ -191,4 +193,10 @@
   border-radius: 10px;
   cursor: pointer;
   transition: ease-in, 0.3s;
+}
+
+.custom-snackbar {
+  background-color: #FFCC00; /* Yellow background color for warning */
+  color: #fff; /* Black text color */
+  font-weight: bold;
 }
