@@ -191,12 +191,14 @@
   height: auto; /* Let height adjust based on content */
   display: flex;
   align-items: center;
-  justify-content: center;
+  
 }
 
 .delBtn i {
-  margin-right: 5px; /* Spacing between icon and text */
-  font-size: 18px; /* Adjusted icon size */
+  margin-right: 2px; /* Spacing between icon and text */
+  font-size: 16px; /* Adjusted icon size */
+  justify-content: center;
+  align-items: center;
 }
 
 .chooseF{

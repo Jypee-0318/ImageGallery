@@ -2,7 +2,7 @@
   <h1 class="head">Image Gallery</h1>
   <div class="image-form">
     <input class="chooseF" type="file" (change)="handleFileInput($event)" multiple>
-    <button class="uploadBtn" (click)="uploadImages()"><i class="fa-solid fa-upload"></i></button>
+    <button class="uploadBtn" (click)="uploadImages()"><i class="fa-solid fa-upload"></i> </button>
   </div>
   <ul class="image-list">
     <li *ngFor="let image of images | async" class="image-list-items">
