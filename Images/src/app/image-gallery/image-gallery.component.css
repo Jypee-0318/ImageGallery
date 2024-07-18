@@ -157,30 +157,48 @@
   background-color: #FBCEB1;
   border: none;
   color: white;
-  padding: 5px 20px;
+  padding: 10px 20px; /* Adjusted padding for better appearance */
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 16px; /* Font size adjusted to match button text */
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
+  font-weight: bold; /* Adjusted font-weight for better appearance */
+  height: auto; /* Let height adjust based on content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.delBtn{
+.uploadBtn i {
+  margin-right: 5px; /* Spacing between icon and text */
+  font-size: 18px; /* Adjusted icon size */
+}
+.delBtn {
   background-color: #FBCEB1;
   border: none;
   color: white;
-  padding: 5px 20px;
+  padding: 5px 15px; /* Adjusted padding for better appearance */
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 16px; /* Font size adjusted to match button text */
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
-  font-weight: 100px;
+  font-weight: bold; /* Adjusted font-weight for better appearance */
+  height: auto; /* Let height adjust based on content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.delBtn i {
+  margin-right: 5px; /* Spacing between icon and text */
+  font-size: 18px; /* Adjusted icon size */
+}
+
 .chooseF{
   background-color: #FBCEB1;
   color: white;
@@ -195,8 +213,3 @@
   transition: ease-in, 0.3s;
 }
 
-.custom-snackbar {
-  background-color: #FFCC00; /* Yellow background color for warning */
-  color: #fff; /* Black text color */
-  font-weight: bold;
-}
