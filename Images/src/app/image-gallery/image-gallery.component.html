@@ -1,9 +1,28 @@
 <div class="image-gallery">
   <h1 class="head">Image Gallery</h1>
-  <div class="image-form">
-    <input class="chooseF" type="file" (change)="handleFileInput($event)" multiple>
-    <button class="uploadBtn" (click)="uploadImages()"><i class="fa-solid fa-upload"></i> </button>
+  
+  <!-- Drag-and-Drop Area -->
+  <div 
+    class="drop-zone" 
+    (drop)="handleDrop($event)" 
+    (dragover)="handleDragOver($event)"
+    (dragenter)="handleDragOver($event)"
+    (dragleave)="handleDragOver($event)"
+  >
+    <p>Drag and drop your images here or click to upload</p>
+    <input 
+      type="file" 
+      (change)="handleFileInput($event)" 
+      multiple
+      hidden
+      #fileInput
+    />
+    <button class="chooseF" (click)="fileInput.click()">Choose Files</button>
   </div>
+
+  
+
+  <!-- Image List -->
   <ul class="image-list">
     <li *ngFor="let image of images | async" class="image-list-items">
       <div class="image-item">

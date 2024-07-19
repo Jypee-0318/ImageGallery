@@ -31,7 +31,23 @@ export class ImageGalleryComponent implements OnInit {
     const target = event.target as HTMLInputElement;
     if (target && target.files) {
       this.selectedFiles = target.files;
+      this.uploadImages();
     }
+  }
+
+  handleDrop(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const files = event.dataTransfer?.files;
+    if (files) {
+      this.selectedFiles = files;
+      this.uploadImages();
+    }
+  }
+
+  handleDragOver(event: DragEvent): void {
+    event.preventDefault();
   }
 
   uploadImages(): void {
