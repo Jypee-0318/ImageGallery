@@ -20,32 +20,27 @@
     <button class="chooseF" (click)="fileInput.click()">Choose Files</button>
   </div>
 
+  <div class="image">
+    <div *ngFor="let image of images | async" class="image-item">
+      <div class="image-container" (click)="openPreview(image)">
+        <img [src]="getImageUrl(image.file_path)" alt="image">
+      </div>
+      <div class="image-info">
+        <p id="file-name">File Name: {{ image.file_name }}</p>
+        <p>Upload Date: {{ image.upload_date }}</p>
+        <button class="delBtn" (click)="deleteImage(image.id)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
   
 
-  <!-- Image List -->
-  <ul class="image-list">
-    <li *ngFor="let image of images | async" class="image-list-items">
-      <div class="image-item">
-        <div class="image-container" (click)="openPreview(getImageUrl(image.file_path))">
-          <img [src]="getImageUrl(image.file_path)" alt="image">
-        </div>
-        <div class="image-info">
-          <p id="file-name">File Name: {{ image.file_name }}</p>
-          <p>Upload Date: {{ image.upload_date }}</p>
-          <button class="delBtn" (click)="deleteImage(image.id)">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
-
 <!-- Modal for Image Preview -->
-<div class="modal" *ngIf="selectedImage">
+<!--<div class="modal" *ngIf="selectedImage">
   <div class="modal-content">
     <span (click)="closePreview()" class="close">&times;</span>
     <img [src]="selectedImage" class="modal-image" />
     <button (click)="closePreview()" class="btn btn-primary return-button">Return</button>
-  </div>
+  </div> -->
 </div>

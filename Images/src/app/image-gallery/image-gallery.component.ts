@@ -3,13 +3,15 @@ import { Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ImageService } from '../services/image_gallery.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog'
+import { ImagePreviewComponent } from '../image-preview/image-preview.component';
 
 @Component({
   selector: 'app-image-gallery',
   templateUrl: './image-gallery.component.html',
   styleUrls: ['./image-gallery.component.css'],
   standalone: true,
-  imports: [CommonModule, MatSnackBarModule]
+  imports: [CommonModule, MatSnackBarModule, MatDialogModule]
 })
 export class ImageGalleryComponent implements OnInit {
   images: Observable<any> = of([]);
@@ -17,7 +19,7 @@ export class ImageGalleryComponent implements OnInit {
   selectedImage: string | null = null;
   baseUrl: string = 'http://localhost/uploads/';
 
-  constructor(private imageService: ImageService, private snackBar: MatSnackBar) { }
+  constructor(private imageService: ImageService, private snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getImages();
@@ -102,8 +104,9 @@ export class ImageGalleryComponent implements OnInit {
     return this.baseUrl + filePath;
   }
 
-  openPreview(imgUrl: string): void {
-    this.selectedImage = imgUrl;
+  openPreview(img: any): void {
+    //this.selectedImage = imgUrl;
+    this.dialog.open(ImagePreviewComponent, {width: '50 rem', height: '50 rem', data: {img}})
   }
 
   closePreview(): void {
