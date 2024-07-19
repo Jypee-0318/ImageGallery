@@ -7,13 +7,15 @@
 
 .head {
   text-align: center;
+  display: flex;
   color: #FBCEB1;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Combined Drag-and-Drop and Manual Upload Area */
 .drop-zone {
-  border: 2px dashed #cccccc;
+  border: 2px dashed #FBCEB1;
+  border-radius: 10px;
   padding: 20px;
   text-align: center;
   cursor: pointer;
@@ -30,7 +32,7 @@
 .drop-zone p {
   margin: 0;
   font-size: 16px;
-  color: #666666;
+  color: #FBCEB1;
 }
 
 .drop-zone input[type="file"] {
@@ -152,7 +154,6 @@
   color: white;
   padding: 5px 10px;
   text-align: center;
-  text-decoration: none;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
@@ -221,4 +222,9 @@
 .return-button {
   display: block;
   margin: 20px auto;
+}
+.cdk-overlay-containercdk-live-announcer-element{
+  padding: 20px;
+  background-color: #FBCEB1;
+  color: white;
 }
