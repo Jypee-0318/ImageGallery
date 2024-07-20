@@ -1,0 +1,268 @@
+/* General styles */
+.image-gallery {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .head {
+    text-align: center;
+    display: flex;
+    color: #FBCEB1;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Combined Drag-and-Drop and Manual Upload Area */
+  .drop-zone {
+    border: 2px dashed #FBCEB1;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .drop-zone.dragover {
+    background-color: #f0f0f0;
+    border-color: #FBCEB1;
+  }
+  
+  .drop-zone p {
+    margin: 0;
+    font-size: 16px;
+    color: #FBCEB1;
+  }
+  
+  .drop-zone input[type="file"] {
+    display: none;
+  }
+  
+  .drop-zone button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .uploadBtn{
+    background-color: #FBCEB1;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .uploadBtn i {
+    margin-right: 5px;
+    font-size: 18px;
+  }
+  
+  /* Image List */
+  .image-list {
+    list-style: none;
+    padding: 0;
+    
+  }
+  
+  .image-list-items {
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .image-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-item:last-child {
+    border-bottom: none;
+  }
+  
+  .image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .image-info {
+    flex: 1;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px;
+    margin-left: 4px;
+  }
+  
+  #file-name {
+    color: #FBCEB1;
+    font-weight: bold;
+  }
+  
+  .delBtn {
+    background-color: #FBCEB1;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .delBtn i {
+    margin-right: 2px;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .chooseF {
+    background-color: #FBCEB1;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: ease-in, 0.3s;
+  }
+  
+  /* Modal for Image Preview */
+  .modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 50%;
+    max-width: 300px;
+    overflow: hidden;
+  }
+  
+  .modal-image {
+    width: 100%;
+  }
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #FBCEB1;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .return-button {
+    display: block;
+    margin: 20px auto;
+  }
+  .cdk-overlay-containercdk-live-announcer-element{
+    padding: 20px;
+    background-color: #FBCEB1;
+    color: white;
+  }
+  
+  .image {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Adjust the gap between images as needed */
+  }
+  
+  .image-item {
+    width: calc(25% - 16px); /* Adjust the percentage as needed for different column counts */
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 200px; /* Adjust the height as needed */
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .image-info {
+    padding: 8px;
+    text-align: center;
+  }
+  
+  
+  

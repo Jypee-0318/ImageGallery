@@ -1,0 +1,47 @@
+<div class="image-gallery">
+    <h1 class="head">Image Gallery</h1>
+    
+    <!-- Drag-and-Drop Area -->
+    <div 
+      class="drop-zone" 
+      (drop)="handleDrop($event)" 
+      (dragover)="handleDragOver($event)"
+      (dragenter)="handleDragOver($event)"
+      (dragleave)="handleDragOver($event)"
+    >
+      <p>Drag and drop your images here or click to upload</p>
+      <input 
+        type="file" 
+        (change)="handleFileInput($event)" 
+        multiple
+        hidden
+        #fileInput
+      />
+      <button class="chooseF" (click)="fileInput.click()">Choose Files</button>
+    </div>
+  
+    <div class="image">
+      <div *ngFor="let image of images | async" class="image-item">
+        <div class="image-container" (click)="openPreview(image)">
+          <img [src]="getImageUrl(image.file_path)" alt="image">
+        </div>
+        <div class="image-info">
+          <p id="file-name">File Name: {{ image.file_name }}</p>
+          <p>Upload Date: {{ image.upload_date }}</p>
+          <button class="delBtn" (click)="deleteImage(image.id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  
+  <!-- Modal for Image Preview -->
+  <!--<div class="modal" *ngIf="selectedImage">
+    <div class="modal-content">
+      <span (click)="closePreview()" class="close">&times;</span>
+      <img [src]="selectedImage" class="modal-image" />
+      <button (click)="closePreview()" class="btn btn-primary return-button">Return</button>
+    </div> -->
+  </div>
+  
