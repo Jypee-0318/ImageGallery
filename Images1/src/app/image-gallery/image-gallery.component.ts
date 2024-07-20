@@ -16,7 +16,7 @@ export class ImageGalleryComponent implements OnInit {
   images: Observable<any> = of([]);
   selectedFiles: FileList | null = null;
   selectedImage: string | null = null;
-  baseUrl: string = 'http://localhost/uploads/';
+  baseUrl: string = 'http://localhost/AppDevSoloProj/photoGallery/server/modules/uploads/';
   userID!: number;
   constructor(private imageService: ImageServiceService, private snackBar: MatSnackBar, public dialog: MatDialog, private userService: UserService) { 
     this.userID = this.userService.getUserId()!;

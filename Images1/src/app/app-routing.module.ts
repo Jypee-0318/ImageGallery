@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { SignupComponent } from './signup/signup.component';
 
+
 export const routes: Routes = [{ 
     path: 'image-gallery', component: ImageGalleryComponent }, 
     {path: 'login', component: LoginComponent},

@@ -1,11 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ImageServiceService } from '../services/image-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { UserService } from '../services/user.service';
+import { ImageEditComponent } from '../image-edit/image-edit.component';
 
 
 @Component({
@@ -14,14 +15,15 @@ import { UserService } from '../services/user.service';
   styleUrl: './image-preview.component.css'
 })
 export class ImagePreviewComponent implements OnInit {
-  imageId!:number; 
-  imagePath!:string;
-  imageName!:string;
-  baseUrl!:String;
+  imageId!: number;
+  imagePath!: string;
+  imageName!: string;
+  baseUrl: string;
   commentForm!: FormGroup;
   userID!: number;
-  comments: any []=[];
-  constructor(public dialogRef: MatDialogRef<ImagePreviewComponent>,@Inject(MAT_DIALOG_DATA) public data: {img: any}, private ImageService: ImageServiceService, private _snackBar: MatSnackBar, private userService: UserService){
+  comments: Observable<any> = of([]);
+  commentsArray: any[] = [];
+  constructor(public dialogRef: MatDialogRef<ImagePreviewComponent>, @Inject(MAT_DIALOG_DATA) public data: { img: any }, private ImageService: ImageServiceService, private _snackBar: MatSnackBar, private userService: UserService, public dialog: MatDialog) {
     this.imageId = data.img.id;
     this.imageName = data.img.file_name;
     this.imagePath = data.img.file_path;
@@ -29,15 +31,17 @@ export class ImagePreviewComponent implements OnInit {
     console.log(this.imageName);
     console.log(this.imagePath);
     //console.log(this.data.img.id);
-    this.baseUrl = `http://localhost/uploads/${this.imagePath}`; 
+    this.baseUrl = `http://localhost/AppDevSoloProj/photoGallery/server/modules/uploads/${this.imagePath}`;
     this.userID = this.userService.getUserId()!;
+    console.log(this.imageId);
+    this.loadComments(this.imageId);
   }
-  cls(){
+  cls() {
     this.dialogRef.close();
   }
 
-  onSubmit(){
-    if(this.commentForm.valid){
+  onSubmit() {
+    if (this.commentForm.valid) {
       // console.log(this.commentForm.value);
       // console.log(this.imageId);
       const comment = this.commentForm.value.comment;
@@ -46,7 +50,7 @@ export class ImagePreviewComponent implements OnInit {
         tap((event: HttpResponse<any>) => {
           if (event.type === HttpEventType.Response) {
             if (event.body.status.remarks === 'success') {
-              this.getComments();
+              this.loadComments(this.imageId);
               this._snackBar.open('Successfully commented', 'Close', {
                 duration: 5000,
               });
@@ -55,20 +59,29 @@ export class ImagePreviewComponent implements OnInit {
         })
       ).subscribe();
     }
+    // this.loadComments(this.imageId);
   }
 
-  ngOnInit():void{
+  ngOnInit() {
     this.commentForm = new FormGroup({
       comment: new FormControl('', Validators.required)
     });
-    this.ImageService.getComments(this.imageId).subscribe(comments => {
-      this.comments = comments;
+    this.loadComments(this.imageId);
+  }
+
+  loadComments(image_id: number) {
+    this.ImageService.getComments(image_id).subscribe((response: any[]) => {
+      console.log(response);
+      this.commentsArray = response;
+      console.log(this.commentsArray);
     });
   }
-  
-  getComments():void{
-    this.ImageService.getComments(this.imageId).subscribe(comments => {
-      this.comments = comments;
-    });
+
+  getComments(): void {
+    this.comments = this.ImageService.getComments(this.imageId);
+
+  }
+  btnEdit(file_path:string){
+    this.dialog.open(ImageEditComponent, { width: '70rem', height: '50rem', data: { file_path } });
   }
 }

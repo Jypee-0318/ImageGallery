@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-// import { ImageEditorModule } from '@syncfusion/ej2-angular-image-editor';
+import { ImageEditorModule } from '@syncfusion/ej2-angular-image-editor';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { ImagePreviewComponent } from './image-preview/image-preview.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
+import { ImageEditComponent } from './image-edit/image-edit.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SignupComponent } from './signup/signup.component';
     ImageGalleryComponent,
     ImagePreviewComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ImageEditComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { SignupComponent } from './signup/signup.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    // ImageEditorModule ,
+    ImageEditorModule ,
     DragDropModule
   ],
   providers: [],

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 
 
 
@@ -36,7 +36,7 @@ export class ImageServiceService {
   }
   getComments(image_id: number): Observable<any[]> {
     return this.http.get(`${this.apiUrl}/comments?image_id=${image_id}`).pipe(
-      map((response: any) => response.records),
+      tap((response: any) => console.log(response)),
       catchError((error: any) => {
         console.error(error);
         return throwError(error);
