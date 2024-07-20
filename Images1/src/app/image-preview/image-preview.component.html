@@ -10,6 +10,12 @@
             </div>
             <div class="right-cont">
                 <h1 class="comments">comment</h1>
+                <h2 *ngFor="let comment of comments">{{comment.messages}}</h2>
+                <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="form">
+                    <textarea formControlName="comment" placeholder="Type your comment here!"></textarea>
+                    <button type="submit" [disabled]="!commentForm.valid" class="comment"><mat-icon>send</mat-icon></button>
+
+                </form>
             </div>
         </div>
     </div>

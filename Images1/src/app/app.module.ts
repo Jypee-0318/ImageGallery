@@ -16,17 +16,21 @@ import { AppComponent } from './app.component';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { ImagePreviewComponent } from './image-preview/image-preview.component';
 import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageGalleryComponent,
     ImagePreviewComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     MatDialogModule,
     HttpClientModule,
     MatIconModule,
@@ -36,8 +40,7 @@ import { LoginComponent } from './login/login.component';
     // ImageEditorModule ,
     DragDropModule
   ],
-  providers: [
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

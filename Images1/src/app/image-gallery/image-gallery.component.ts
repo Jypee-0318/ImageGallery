@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { ImageService } from '../services/image-gallery.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog'
 import { ImagePreviewComponent } from '../image-preview/image-preview.component';
+import { ImageServiceService } from '../services/image-service.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-image-gallery',
   templateUrl: './image-gallery.component.html',
-  styleUrl: './image-gallery.component.css'
+  styleUrls: ['./image-gallery.component.css'],
 })
 export class ImageGalleryComponent implements OnInit {
   images: Observable<any> = of([]);
   selectedFiles: FileList | null = null;
   selectedImage: string | null = null;
   baseUrl: string = 'http://localhost/uploads/';
-
-  constructor(private imageService: ImageService, private snackBar: MatSnackBar, public dialog: MatDialog) { }
+  userID!: number;
+  constructor(private imageService: ImageServiceService, private snackBar: MatSnackBar, public dialog: MatDialog, private userService: UserService) { 
+    this.userID = this.userService.getUserId()!;
+  }
 
   ngOnInit(): void {
     this.getImages();
@@ -62,7 +65,7 @@ export class ImageGalleryComponent implements OnInit {
             });
             continue;
           }
-          this.imageService.uploadImage(file).subscribe((response: any) => {
+          this.imageService.uploadImage(file, this.userID).subscribe((response: any) => {
             console.log('Upload response:', response);
             this.snackBar.open('Image uploaded successfully!', 'Close', {
               duration: 4000,
