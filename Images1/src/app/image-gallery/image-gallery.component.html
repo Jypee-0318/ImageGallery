@@ -26,8 +26,8 @@
           <img [src]="getImageUrl(image.file_path)" alt="image">
         </div>
         <div class="image-info">
-          <!-- <p id="file-name">File Name: {{ image.file_name }}</p>
-          <p>Upload Date: {{ image.upload_date }}</p> -->
+          <p id="file-name">File Name: {{ image.file_name }}</p>
+          <p>Upload Date: {{ image.upload_date }}</p>
           <button class="delBtn" (click)="deleteImage(image.id)">
             <i class="fa-solid fa-trash"></i>
           </button>
