@@ -1,3 +1,4 @@
+/* Existing styles */
 .modal {
   display: flex;
   justify-content: center;
@@ -15,12 +16,11 @@
 .modal-content {
   background: #fff;
   border-radius: 12px;
-  padding: 100%;
-  width: 70%;
-  min-width: 1000px;
+  padding: 20px;
+  width: 50%;
+  max-width: 1000px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
-  
 }
 
 .header {
@@ -38,10 +38,9 @@
 }
 
 .modal-image {
-  width: 100%;
+  width: 65%;
   max-width: 700px;
   border-radius: 8px;
-  margin-right: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -83,10 +82,16 @@
 }
 
 .comments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
-  width: 80%;
+  width: 30%;
+  margin-left: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .comments-title {
@@ -98,7 +103,7 @@
 /* Comment item styling */
 .comment-item {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  flex-direction: column;
   align-items: flex-start;
   background-color: #fff;
   padding: 10px;
@@ -112,14 +117,14 @@
 .comment-user {
   color: #333;
   font-weight: bold;
-  margin-bottom: 5px; /* Add space between name and message */
+  margin-bottom: 5px;
 }
 
 /* Comment messages styling */
 .comment-messages {
   color: #666;
-  margin-bottom: 10px; /* Add space between message and delete button */
-  word-break: break-word; /* Ensure long words break to the next line */
+  margin-bottom: 10px;
+  word-break: break-word;
 }
 
 .comment-form {
@@ -134,7 +139,6 @@ textarea {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  margin-right: 10px;
   resize: none;
   font-size: 14px;
   transition: border 0.3s ease;
@@ -156,4 +160,66 @@ textarea:focus {
 
 .comment-submit:disabled {
   background-color: #ddd;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .modal-content {
+    width: 70%;
+    min-width: unset;
+    padding: 20px;
+  }
+  
+  .modal-image {
+    max-width: 100%;
+    margin-right: 0;
+  }
+  
+  .body {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .comments-container {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+  }
+  
+  .btn-primary, .return-button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+  
+  .comments-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .btn-primary, .return-button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  
+  textarea {
+    font-size: 12px;
+    padding: 8px;
+  }
+  
+  .comment-submit {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
