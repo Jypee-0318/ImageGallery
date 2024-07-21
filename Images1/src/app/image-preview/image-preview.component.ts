@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupName, NumberValueAccessor, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ImageServiceService } from '../services/image-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -81,19 +81,17 @@ export class ImagePreviewComponent implements OnInit {
     this.comments = this.ImageService.getComments(this.imageId);
 
   }
-  
   btnEdit(file_path:string){
     this.dialog.open(ImageEditComponent, { width: '70rem', height: '50rem', data: { file_path } });
   }
-
-  deleteComments(comment_id: string): void {
+  deleteComments(comment_id: number): void {
     this.ImageService.delComments(comment_id).subscribe(
       (response: any) => {
         console.log('Delete response:', response);
         this._snackBar.open('Comment deleted successfully!', 'Close', {
           duration: 3000
         });
-        this.getComments();
+        this.loadComments(this.imageId); // Reload comments after deletion
       },
       (error) => {
         console.error('Delete error:', error);

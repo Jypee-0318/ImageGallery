@@ -104,11 +104,6 @@
   flex-direction: column;
   width: 100%;
 }
-.comment-all{
-  display: flex;
-  text-align: end;
-  align-items: flex-end;
-}
 
 textarea {
   width: 100%;
