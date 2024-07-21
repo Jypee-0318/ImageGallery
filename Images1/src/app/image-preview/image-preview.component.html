@@ -1,6 +1,7 @@
 <div class="modal">
   <div class="modal-content">
     <div class="header">
+      <button (click)="btnEdit(this.baseUrl)" class="btn-primary edit-button">Edit Image</button>
       <button (click)="cls()" class="btn btn-primary return-button">X</button>
     </div>
     <div class="body">
@@ -9,9 +10,8 @@
         <img [src]="baseUrl" class="modal-image"/>
       </div>
       <div class="right-cont">
-        <button (click)="btnEdit(this.baseUrl)" class="btn-primary">Edit Image</button>
         <div class="comments-container">
-          <h1 class="comments">Comments</h1>
+          <h1 class="comments-title">Comments</h1>
           <div *ngFor="let comment of commentsArray" class="comment-item">
             <h2 class="comment-user">{{comment.user_fname}} {{comment.user_lname}}</h2>
             <p class="comment-messages">{{comment.messages}}</p>
@@ -19,7 +19,7 @@
           </div>
           <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="comment-form">
             <textarea formControlName="comment" placeholder="Type your comment here!"></textarea>
-            <button type="submit" [disabled]="!commentForm.valid" class="comment"><mat-icon>send</mat-icon></button>
+            <button type="submit" [disabled]="!commentForm.valid" class="comment-submit"><mat-icon>send</mat-icon></button>
           </form>
         </div>
       </div>
