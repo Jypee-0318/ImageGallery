@@ -100,4 +100,12 @@ export class ImageServiceService {
       observe: "events"
     })
   } 
+  delComments(comment_id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete/${comment_id}`).pipe(
+      catchError((error: any) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
+  }
 }

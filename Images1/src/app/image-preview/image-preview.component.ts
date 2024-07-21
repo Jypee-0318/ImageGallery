@@ -81,7 +81,26 @@ export class ImagePreviewComponent implements OnInit {
     this.comments = this.ImageService.getComments(this.imageId);
 
   }
+  
   btnEdit(file_path:string){
     this.dialog.open(ImageEditComponent, { width: '70rem', height: '50rem', data: { file_path } });
+  }
+
+  deleteComments(comment_id: string): void {
+    this.ImageService.delComments(comment_id).subscribe(
+      (response: any) => {
+        console.log('Delete response:', response);
+        this._snackBar.open('Comment deleted successfully!', 'Close', {
+          duration: 3000
+        });
+        this.getComments();
+      },
+      (error) => {
+        console.error('Delete error:', error);
+        this._snackBar.open('Failed to delete comment.', 'Close', {
+          duration: 3000
+        });
+      }
+    );
   }
 }
