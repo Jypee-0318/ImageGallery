@@ -43,6 +43,15 @@ export class ImageServiceService {
       })
     );
   }
+  // getComments(image_id: number): Observable<any[]> {
+  //   return this.http.get(`${this.apiUrl}/comments/${image_id}`).pipe(
+  //     tap((response: any) => console.log(response)),
+  //     catchError((error: any) => {
+  //       console.error(error);
+  //       return throwError(error);
+  //     })
+  //   );
+  // }
   getImageById(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/image/${id}`).pipe(
       catchError((error: any) => {
