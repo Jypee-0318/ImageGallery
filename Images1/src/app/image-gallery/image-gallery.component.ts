@@ -24,6 +24,12 @@ export class ImageGalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getImages();
+    console.log(this.images);
+    this.images.subscribe({
+      next: (value) => console.log(value),
+      error: (error) => console.error('Error:', error),
+      complete: () => console.log('Complete')
+    });
   }
 
   getImages(): void {
@@ -102,6 +108,7 @@ export class ImageGalleryComponent implements OnInit {
   }
 
   getImageUrl(filePath: string): string {
+    console.log(this.baseUrl + filePath);
     return this.baseUrl + filePath;
   }
 

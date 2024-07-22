@@ -34,6 +34,7 @@ export class ImageServiceService {
       })
     );
   }
+  
   getComments(image_id: number): Observable<any[]> {
     return this.http.get(`${this.apiUrl}/comments?image_id=${image_id}`).pipe(
       tap((response: any) => console.log(response)),

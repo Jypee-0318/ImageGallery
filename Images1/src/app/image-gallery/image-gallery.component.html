@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
 <div class="image-gallery">
     <h1 class="head">Image Gallery</h1>
     <button class="logout" (click)="logout()">logout</button>
@@ -26,8 +30,8 @@
           <img [src]="getImageUrl(image.file_path)" alt="image">
         </div>
         <div class="image-info">
-          <!-- <p id="file-name">File Name: {{ image.file_name }}</p>
-          <p>Upload Date: {{ image.upload_date }}</p> -->
+          <p id="file-name">File Name: {{ image.file_name }}</p>
+          <p>Upload Date: {{ image.upload_date }}</p>
           <button class="delBtn" (click)="deleteImage(image.id)">
             <i class="fa-solid fa-trash"></i>
           </button>

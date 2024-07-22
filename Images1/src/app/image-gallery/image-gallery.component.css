@@ -130,7 +130,7 @@
     background-color: #FBCEB1;
     border: none;
     color: white;
-    padding: 5px 15px;
+    padding: 10px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -142,6 +142,7 @@
     height: auto;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   
   .delBtn i {
