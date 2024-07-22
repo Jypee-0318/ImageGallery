@@ -14,7 +14,7 @@
           <h1 class="comments-title">Comments</h1>
           <div *ngFor="let comment of commentsArray" class="comment-item">
             <h2 class="comment-user">{{comment.user_fname}} {{comment.user_lname}}</h2>
-            <p class="comment-messages">{{comment.comment.messages}}</p>
+            <p class="comment-messages">{{comment.messages}}</p>
             <button class="btn-del" (click)="deleteComments(comment.comment_id)"><i class="fa-solid fa-trash"></i></button>
           </div>
           <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="comment-form">
