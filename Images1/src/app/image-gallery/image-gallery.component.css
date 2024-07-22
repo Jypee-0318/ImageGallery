@@ -48,7 +48,7 @@
     cursor: pointer;
   }
   
-  .uploadBtn{
+  .logout{
     background-color: #FBCEB1;
     border: none;
     color: white;
@@ -149,6 +149,7 @@
     font-size: 16px;
     justify-content: center;
     align-items: center;
+    height: 10px;
   }
   
   .chooseF {
