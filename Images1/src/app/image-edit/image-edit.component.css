@@ -1,0 +1,41 @@
+/* General Wrapper Styles */
+#wrapperDiv {
+    width: 70rem;
+    height: 50rem;
+    background-color: #fff; /* Light background for contrast */
+    border: 2px solid #FBCEB1; /* Subtle border using the specified color */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 20px; /* Padding for spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+/* Button Style */
+.save-curr {
+    background-color: #FBCEB1; /* Matching background color */
+    color: white; /* Text color for contrast */
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+/* Button Hover Effects */
+.save-curr:hover {
+    background-color: #f9bfa5; /* Slightly darker shade on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Image Editor Styles */
+ejs-imageeditor {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden;
+}

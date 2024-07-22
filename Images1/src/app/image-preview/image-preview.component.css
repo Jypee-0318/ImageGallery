@@ -11,13 +11,15 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   transition: all 0.3s ease-in-out;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
 }
 
 .modal-content {
   background: #fff;
   border-radius: 12px;
-  padding: 20px;
-  width: 50%;
+  padding: 5px;
+  width: 80%;
   max-width: 1000px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
@@ -30,6 +32,18 @@
   margin-bottom: 10px;
 }
 
+.left-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 10px auto 10px; /* Adjusted margins for better alignment */
+  padding: 1px;
+  position: relative; /* Ensure it's positioned correctly */
+  top: 10vh; /* Adjust if necessary for vertical alignment */
+  border: solid 0.5px transparent; /* Adjusted border width to 0.5px */
+  border-radius: 10px;
+}
 .body {
   display: flex;
   justify-content: space-between;
@@ -38,10 +52,12 @@
 }
 
 .modal-image {
-  width: 70%;
+  width: 60%;
   max-width: 700px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* margin: 100px; */
+  padding: 20px;
 }
 
 .return-button {
@@ -78,19 +94,22 @@
 .file-name {
   color: #333;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-size: 15px;
 }
 
-.comments-container { 
+.comments-container {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   background-color: #f9f9f9;
-  padding: 50px;
+  padding: 20px;
   border-radius: 8px;
   width: 100%;
-  margin-left: 10px;
-  max-height: 80vh;
-
+  max-height: 65vh;
+  height: 100vh;
+  overflow-y: auto ; /* Add vertical scrollbar */
+  overflow-x: hidden;
 }
 
 .comments-title {
@@ -144,22 +163,39 @@ textarea {
 }
 
 textarea:focus {
-  border: 1px solid #4CAF50;
+  border: 1px solid #FBCEB1;
 }
 
 .comment-submit {
-  background-color: #4CAF50;
+  background-color: #FBCEB1;
   border: none;
   color: white;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 4px;
 }
 
 .comment-submit:disabled {
   background-color: #ddd;
 }
+
+.btn-del{
+  color:#ffff ;
+  border-radius: 10px;
+  border-color: #ccc;
+  background-color: #ccc;
+
+}
+
+.text-box{
+  border: solid 2px #333 ;
+}
+
+/* .btn-del i{
+  color: #fff;
+} */
 
 /* Responsive styles */
 @media (max-width: 1200px) {
@@ -181,8 +217,9 @@ textarea:focus {
   
   .comments-container {
     width: 100%;
-    margin-left: 0;
-    margin-top: 20px;
+    margin-left: 10vh;
+    margin-top: 10px;
+    overflow: hidden;
   }
 }
 
@@ -198,7 +235,9 @@ textarea:focus {
   
   .comments-container {
     width: 100%;
-    width: 100px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     display: flex;
   }
 }
@@ -217,7 +256,6 @@ textarea:focus {
   textarea {
     font-size: 12px;
     padding: 8px;
-    display: flex;
   }
   
   .comment-submit {

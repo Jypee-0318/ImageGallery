@@ -6,6 +6,7 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog'
 import { ImagePreviewComponent } from '../image-preview/image-preview.component';
 import { ImageServiceService } from '../services/image-service.service';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-image-gallery',
@@ -18,7 +19,7 @@ export class ImageGalleryComponent implements OnInit {
   selectedImage: string | null = null;
   baseUrl: string = 'http://localhost/AppDevSoloProj/photoGallery/server/modules/uploads/';
   userID!: number;
-  constructor(private imageService: ImageServiceService, private snackBar: MatSnackBar, public dialog: MatDialog, private userService: UserService) { 
+  constructor(private imageService: ImageServiceService, private snackBar: MatSnackBar, public dialog: MatDialog, private userService: UserService, private router: Router) { 
     this.userID = this.userService.getUserId()!;
   }
 
@@ -122,5 +123,6 @@ export class ImageGalleryComponent implements OnInit {
   }
   logout(): void{
     this.userService.logout();
+    this.router.navigate(['/login/']);
   }
 }
