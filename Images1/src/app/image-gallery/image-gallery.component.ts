@@ -113,8 +113,4 @@ export class ImageGalleryComponent implements OnInit {
   closePreview(): void {
     this.selectedImage = null;
   }
-
-  logout(): void{
-    this.userService.logout();
-  }
 }

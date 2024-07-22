@@ -1,11 +1,7 @@
-<div class="body">
-<div class="form-container">
-    <input type="text" placeholder="First Name" [(ngModel)]="signupForm.FirstName">
-    <input type="text" placeholder="Last Name" [(ngModel)]="signupForm.LastName">
-    <input type="text" placeholder="Email" [(ngModel)]="signupForm.Email">
-    <input type="password" placeholder="Password" [(ngModel)]="signupForm.Password">
-    <input type="password" placeholder="Re-enter Password" [(ngModel)]="signupForm.rePassword">
-    <button class="signup" (click)="onSignup()">Sign Up</button>
-    <a routerLink="/login">LogIn Here!</a>
-  </div>
-</div>
+<input type="text" placeholder="First Name"[(ngModel)]="signupForm.FirstName">
+<input type="text" placeholder="Last Name"[(ngModel)]="signupForm.LastName">
+<input type="text" placeholder="Email"[(ngModel)]="signupForm.Email">
+<input type="text" placeholder="Password"[(ngModel)]="signupForm.Password">
+<input type="text" placeholder="Re-enter Password"[(ngModel)]="signupForm.rePassword">
+<button class="signup" (click)="onSignup()">SignUp</button>
+<a routerLink="/login">SignIn Here!</a>
