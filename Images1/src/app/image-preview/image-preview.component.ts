@@ -84,21 +84,53 @@ export class ImagePreviewComponent implements OnInit {
   btnEdit(file_path:string){
     this.dialog.open(ImageEditComponent, { width: '70rem', height: '50rem', data: { file_path } });
   }
-  deleteComments(comment_id: number): void {
-    this.ImageService.delComments(comment_id).subscribe(
-      (response: any) => {
-        console.log('Delete response:', response);
-        this._snackBar.open('Comment deleted successfully!', 'Close', {
-          duration: 3000
-        });
-        this.loadComments(this.imageId); // Reload comments after deletion
-      },
-      (error) => {
-        console.error('Delete error:', error);
-        this._snackBar.open('Failed to delete comment.', 'Close', {
-          duration: 3000
-        });
-      }
-    );
+  // deleteComments(comment_id: number): void {
+  //   this.ImageService.delComments(comment_id).subscribe(
+  //     (response: any) => {
+  //       console.log('Delete response:', response);
+  //       this._snackBar.open('Comment deleted successfully!', 'Close', {
+  //         duration: 3000
+  //       });
+  //       this.loadComments(this.imageId); // Reload comments after deletion
+  //     },
+  //     (error) => {
+  //       console.error('Delete error:', error);
+  //       this._snackBar.open('Failed to delete comment.', 'Close', {
+  //         duration: 3000
+  //       });
+  //     }
+  //   );
+  // }
+
+  deleteComments(comment_id: number, comment_user_id: number): void {
+    const login = this.userService.getUserId(); // Assuming you have a method to get the logged-in user's ID
+  
+    if (login !== comment_user_id) {
+      this._snackBar.open('You can only delete your own comments.', 'Close', {
+        duration: 3000
+      });
+      return;
+    }
+    if (confirm('Are you sure you want to delete this comment?')) {
+      this._snackBar.open('Are you sure you want to delete this comment?', 'Close', {
+        duration: 3000
+      });
+      this.ImageService.delComments(comment_id).subscribe(
+        (response: any) => {
+          console.log('Delete response:', response);
+          this._snackBar.open('Comment deleted successfully!', 'Close', {
+            duration: 3000
+          });
+          // this.comments = this.comments.filter((comment: any) => comment.id !== comment_id);
+          this.loadComments(this.imageId); // Reload comments after deletion
+        },
+        (error) => {
+          console.error('Delete error:', error);
+          this._snackBar.open('Failed to delete comment.', 'Close', {
+            duration: 3000
+          });
+        }
+      );
+    }
   }
 }
