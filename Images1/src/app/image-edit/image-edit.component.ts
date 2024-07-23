@@ -24,7 +24,7 @@ export class ImageEditComponent {
     this.editorObject.open(this.imagePath);
     console.log(this.imagePath);
   }
-  getImages(): void {
-    this.images = this.imageService.getImages();
-  }
+  // getImages(): void {
+  //   this.images = this.imageService.getImages();
+  // }
 }
