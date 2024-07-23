@@ -4,7 +4,9 @@
 
 <div class="image-gallery">
     <h1 class="head">Image Gallery</h1>
-    <button class="logout" (click)="logout()">logout</button>
+    <button class="logout" (click)="logout()">
+      <i class="fa-solid fa-left-from-bracket"></i>
+    </button>
     <!-- Drag-and-Drop Area -->
     <div 
       class="drop-zone" 
@@ -23,8 +25,20 @@
       />
       <button class="chooseF" (click)="fileInput.click()">Choose Files</button>
     </div>
+  </div>
+  <div class="container">
+    <div *ngFor="let image of images | async" class="image-item">
+      <div class="image-container" (click)="openPreview(image)">
+        <div class="box">
+        <img [src]="getImageUrl(image.file_path)" alt="image">
+        </div>
+      </div>
+    </div>
+  </div>
   
-    <div class="image">
+    
+  
+    <!-- <div class="image">
       <div *ngFor="let image of images | async" class="image-item">
         <div class="image-container" (click)="openPreview(image)">
           <img [src]="getImageUrl(image.file_path)" alt="image">
@@ -37,7 +51,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
     
   
   <!-- Modal for Image Preview -->
@@ -47,5 +61,5 @@
       <img [src]="selectedImage" class="modal-image" />
       <button (click)="closePreview()" class="btn btn-primary return-button">Return</button>
     </div> -->
-  </div>
+
   
