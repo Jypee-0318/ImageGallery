@@ -2,8 +2,8 @@
   <div class="modal-content">
     <div class="header">
       <h1 class="file-name">{{imageName}}</h1> 
-      <button (click)="btnEdit(this.baseUrl)" class="btn-primary edit-button">Edit Image</button>
-      <button (click)="cls()" class="btn btn-primary return-button">X</button>
+      <button (click)="btnEdit(this.baseUrl)" class="btn-primary edit-button"><i class="fa fa-edit"></i></button>
+      <button (click)="cls()" class="return-button"><i class="fa fa-times"></i></button>
     </div>
     <div class="body">       
         <img [src]="baseUrl" class="modal-image"/>
@@ -12,14 +12,14 @@
           <div *ngFor="let comment of commentsArray" class="comment-item">
             <h2 class="comment-user">{{comment.user_fname}} {{comment.user_lname}}</h2>
             <p class="comment-messages">{{comment.messages}}</p>
-            <button class="btn-del" (click)="deleteComments(comment.comment_id, comment.user_id)"><i class="fa-solid fa-trash"></i></button>
+            <button class="btn-del" (click)="deleteComments(comment.comment_id, comment.user_id)"><i class="fa fa-trash"></i></button>
           </div>
         </div>
       </div>
       <div class="right-cont">
         <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="comment-form">
           <textarea class="text-box" formControlName="comment" placeholder="Type your comment here!"></textarea>
-          <button type="submit" [disabled]="!commentForm.valid" class="comment-submit"><mat-icon>send</mat-icon></button>
+          <button type="submit" [disabled]="!commentForm.valid" class="comment-submit"><i class="fa-regular fa-paper-plane"></i></button>
         </form>
     </div>
   </div>

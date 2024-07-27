@@ -1,19 +1,23 @@
-/* General styles */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 .image-gallery {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
 
-.head {
-    text-align: center;
+.header-container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.head {
     color: #FBCEB1;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -68,16 +72,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    display: flex;
     height: auto;
 }
 
 .logout i {
     color: #fff;
     font-size: 16px;
-    margin-left: 5px; /* Optional: Add space between text and icon */
+    margin-left: 5px;
 }
-
 
 .uploadBtn i {
     margin-right: 5px;
@@ -86,16 +88,18 @@
 
 .image-container {
     cursor: pointer;
+    position: relative; /* Ensure this is set to position the delete button absolutely within it */
 }
+
 #file-name {
     color: #FBCEB1;
     font-weight: bold;
 }
 
 .delBtn {
-    background-color: #FBCEB1;
+    background: transparent;
     border: none;
-    color: white;
+    color: red;
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
@@ -105,18 +109,18 @@
     cursor: pointer;
     border-radius: 10px;
     font-weight: bold;
-    height: auto;
+    position: absolute; /* Ensure this is set to position the delete button absolutely */
+    top: 10px; /* Position it 10px from the top */
+    right: 10px; /* Position it 10px from the right */
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 .delBtn i {
     margin-right: 2px;
     font-size: 16px;
-    justify-content: center;
-    align-items: center;
-    height: 10px;
 }
 
 .chooseF {
@@ -128,9 +132,9 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-    cursor: pointer;
     transition: ease-in, 0.3s;
 }
+
 .close {
     position: absolute;
     top: 15px;
@@ -168,45 +172,42 @@
 }
 
 .cdk-overlay-containercdk-live-announcer-element {
-    padding: 20px;
+    padding: 50px;
     background-color: #FBCEB1;
     color: white;
 }
 
 .container {
-    width: 1400px;
+    width: 100%;
     margin: 20px auto;
-    columns: 4;
+    columns: 5;
     column-gap: 40px;
 }
 
-.container .box{ 
-    width: 100%;
-    margin-bottom: 10px;
-    break-inside: avoid;
- } 
+.container .box {
+    position: relative; /* Ensure this is set to position the delete button absolutely within it */
+}
 
- .container .box img{
+.container .box img {
     max-width: 100%;
     border-radius: 15px;
- }
+}
 
-@media (max-width: 1200px)
-{
-    .container{
+@media (max-width: 1200px) {
+    .container {
         width: calc(100% - 40px);
+        columns: 4;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
         columns: 3;
     }
 }
-@media (max-width: 768px)
-{
-    .container{
+
+@media (max-width: 480px) {
+    .container {
         columns: 2;
-    }
-}
-@media (max-width: 480px)
-{
-    .container{
-        columns: 1;
     }
 }

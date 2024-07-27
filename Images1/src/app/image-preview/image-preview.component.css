@@ -1,4 +1,3 @@
-/* Existing styles */
 .modal {
   display: flex;
   justify-content: center;
@@ -11,25 +10,66 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   transition: all 0.3s ease-in-out;
-  /* overflow-y: auto;
-  overflow-x: hidden; */
+  overflow-y: auto;
 }
 
 .modal-content {
   background: #fff;
-  border-radius: 12px;
-  padding: 5px;
+  border-radius: 16px;
+  padding: 20px;
   width: 70%;
-  max-width: 1000px;
+  max-width: 900px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
 }
 
 .header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.head {
+  color: #FBCEB1;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.file-name {
+  color: #333;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.delBtn, .btn-primary, .return-button, .comment-submit {
+  background-color: #FBCEB1;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.delBtn i, .btn-primary i, .return-button i, .comment-submit i {
+  margin-right: 5px;
+}
+
+.delBtn:hover, .btn-primary:hover, .return-button:hover, .comment-submit:hover {
+  background-color: #e8b090;
 }
 
 .left-cont {
@@ -37,13 +77,14 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  margin: 10px auto 10px; /* Adjusted margins for better alignment */
+  margin: 10px auto;
   padding: 1px;
-  position: relative; /* Ensure it's positioned correctly */
-  top: 10vh; /* Adjust if necessary for vertical alignment */
-  border: solid 0.5px transparent; /* Adjusted border width to 0.5px */
+  position: relative;
+  top: 10vh;
+  border: solid 0.5px transparent;
   border-radius: 10px;
 }
+
 .body {
   display: flex;
   justify-content: space-between;
@@ -52,50 +93,11 @@
 }
 
 .modal-image {
-  width: 35%;
-  max-width: 700px;
-  /* border-radius: 8px; */
+  width: 40%;
+  max-width: 600px;
+  border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  /* margin: 100px; */
   padding: 20px;
-}
-
-.return-button {
-  background-color: #FBCEB1;
-  border: none;
-  color: white;
-  padding: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.return-button:hover {
-  background-color: #FBCEB1;
-}
-
-.btn-primary {
-  background-color: #FBCEB1;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  margin: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #FBCEB1;
-}
-
-.file-name {
-  color: #333;
-  font-weight: bold;
-  margin-bottom: 15px;
-  font-size: 15px;
 }
 
 .comments-container {
@@ -105,10 +107,9 @@
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
-  width: 100%;
+  width: 55%;
   max-height: 65vh;
-  height: 100vh;
-  overflow-y: auto ; /* Add vertical scrollbar */
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -116,29 +117,27 @@
   color: #333;
   font-weight: bold;
   margin-bottom: 15px;
+  font-size: 20px;
 }
 
-/* Comment item styling */
 .comment-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   background-color: #fff;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 15px;
+  border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
   width: 100%;
 }
 
-/* Comment user styling */
 .comment-user {
   color: #333;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-/* Comment messages styling */
 .comment-messages {
   color: #666;
   margin-bottom: 10px;
@@ -155,7 +154,7 @@
 textarea {
   width: 100%;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   resize: none;
   font-size: 14px;
@@ -167,47 +166,39 @@ textarea:focus {
 }
 
 .comment-submit {
-  background-color: #FBCEB1;
-  border: none;
-  color: white;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 4px;
+  padding: 10px 20px;
+  margin-left: 10px;
 }
 
 .comment-submit:disabled {
   background-color: #ddd;
 }
 
-.btn-del{
-  color:#ffff ;
-  border-radius: 10px;
-  border-color: #ccc;
-  background-color: #ccc;
-
-}
-
-.text-box{
-  border: solid 2px #333 ;
-}
-
-/* .btn-del i{
+.btn-del {
   color: #fff;
-} */
+  background-color: #ccc;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
 
-/* Responsive styles */
+.btn-del:hover {
+  background-color: #b3b3b3;
+}
+
+.text-box {
+  border: solid 2px #333;
+}
+
 @media (max-width: 1200px) {
   .modal-content {
-    width: 40%;
-    min-width: unset;
+    width: 90%;
     padding: 15px;
   }
   
   .modal-image {
-    max-width: 50%;
-    margin-right: 0;
+    width: 50%;
   }
   
   .body {
@@ -216,49 +207,39 @@ textarea:focus {
   }
   
   .comments-container {
-    width: 40%;
-    margin-left: 10vh;
-    margin-top: 10px;
-    overflow: hidden;
+    width: 90%;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .modal-content {
-    width: 95%;
+    width: 100%;
   }
   
-  .btn-primary, .return-button {
+  .btn-primary, .return-button, .comment-submit {
     font-size: 14px;
     padding: 8px 15px;
   }
   
   .comments-container {
-    width: 50%;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    position: relative;
-    display: flex;
   }
 }
 
 @media (max-width: 480px) {
   .modal-content {
-    width: 100%;
     padding: 10px;
   }
   
-  .btn-primary, .return-button {
+  .btn-primary, .return-button, .comment-submit {
     font-size: 12px;
     padding: 6px 10px;
   }
   
   textarea {
-    font-size: 12px;
-    padding: 8px;
-  }
-  
-  .comment-submit {
     font-size: 12px;
     padding: 8px;
   }
