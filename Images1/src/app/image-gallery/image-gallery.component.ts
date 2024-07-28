@@ -96,14 +96,12 @@ export class ImageGalleryComponent implements OnInit {
       console.log('Delete response:', response);
       this.snackBar.open('Image deleted successfully!', 'Close', {
         duration: 4000,
-        panelClass: ['custom-snackbar']
       });
       this.getImages();
     }, error => {
       console.error('Delete error:', error);
       this.snackBar.open('Failed to delete image.', 'Close', {
         duration: 4000,
-        panelClass: ['custom-snackbar']
       });
     });
   }

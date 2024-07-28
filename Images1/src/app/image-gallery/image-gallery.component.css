@@ -2,28 +2,28 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.image-gallery {
+    background-color: grey, transparent;
+  }
+  
+  .image-gallery {
     width: 100%;
     margin: 0 auto;
     padding: 20px;
-}
-
-.header-container {
+  }
+  
+  .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-}
-
-.head {
+  }
+  
+  .head {
     color: #FBCEB1;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Combined Drag-and-Drop and Manual Upload Area */
-.drop-zone {
+  }
+  
+  .drop-zone {
     border: 2px dashed #FBCEB1;
     border-radius: 10px;
     padding: 20px;
@@ -32,33 +32,33 @@
     margin-bottom: 20px;
     position: relative;
     transition: background-color 0.3s ease;
-}
-
-.drop-zone.dragover {
+  }
+  
+  .drop-zone.dragover {
     background-color: #f0f0f0;
     border-color: #FBCEB1;
-}
-
-.drop-zone p {
+  }
+  
+  .drop-zone p {
     margin: 0;
     font-size: 16px;
     color: #FBCEB1;
-}
-
-.drop-zone input[type="file"] {
+  }
+  
+  .drop-zone input[type="file"] {
     display: none;
-}
-
-.drop-zone button {
+  }
+  
+  .drop-zone button {
     margin-top: 10px;
     background-color: #FBCEB1;
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
-}
-
-.logout {
+  }
+  
+  .logout {
     background-color: #FBCEB1;
     border: none;
     padding: 10px 20px;
@@ -73,57 +73,60 @@
     align-items: center;
     justify-content: center;
     height: auto;
-}
-
-.logout i {
+  }
+  
+  .logout i {
     color: #fff;
     font-size: 16px;
     margin-left: 5px;
-}
-
-.uploadBtn i {
+  }
+  
+  .uploadBtn i {
     margin-right: 5px;
     font-size: 18px;
-}
-
-.image-container {
+  }
+  
+  .image-container {
     cursor: pointer;
-    position: relative; /* Ensure this is set to position the delete button absolutely within it */
-}
-
-#file-name {
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-container:hover {
+    transform: scale(1.05);
+  }
+  
+  .image-container:hover .delBtn {
+    opacity: 1;
+  }
+  
+  #file-name {
     color: #FBCEB1;
     font-weight: bold;
-}
-
-.delBtn {
-    background: transparent;
+  }
+  
+  .delBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+    color: #fff;
     border: none;
-    color: red;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    border-radius: 50%;
+    padding: 10px;
     cursor: pointer;
-    border-radius: 10px;
-    font-weight: bold;
-    position: absolute; /* Ensure this is set to position the delete button absolutely */
-    top: 10px; /* Position it 10px from the top */
-    right: 10px; /* Position it 10px from the right */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-.delBtn i {
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .delBtn:hover i {
     margin-right: 2px;
     font-size: 16px;
-}
-
-.chooseF {
+    opacity: 1;
+  }
+  
+  .chooseF {
     background-color: #FBCEB1;
     color: white;
     padding: 5px 10px;
@@ -133,9 +136,9 @@
     cursor: pointer;
     border-radius: 10px;
     transition: ease-in, 0.3s;
-}
-
-.close {
+  }
+  
+  .close {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -143,16 +146,16 @@
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
+  }
+  
+  .close:hover,
+  .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
-}
-
-.btn-primary {
+  }
+  
+  .btn-primary {
     background-color: #FBCEB1;
     border: none;
     color: white;
@@ -164,50 +167,57 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-}
-
-.return-button {
+  }
+  
+  .return-button {
     display: block;
     margin: 20px auto;
-}
-
-.cdk-overlay-containercdk-live-announcer-element {
+  }
+  
+  .cdk-overlay-containercdk-live-announcer-element {
     padding: 50px;
     background-color: #FBCEB1;
     color: white;
-}
-
-.container {
+  }
+  
+  .container {
     width: 100%;
     margin: 20px auto;
     columns: 5;
-    column-gap: 40px;
-}
-
-.container .box {
-    position: relative; /* Ensure this is set to position the delete button absolutely within it */
-}
-
-.container .box img {
+    column-gap: 20px;
+    
+  }
+  
+  .container .box {
+    position: relative;
+  }
+  
+  .container .box img {
     max-width: 100%;
     border-radius: 15px;
-}
-
-@media (max-width: 1200px) {
+    transition: transform 0.3s ease;
+  }
+  
+  .container .box:hover img {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 1200px) {
     .container {
-        width: calc(100% - 40px);
-        columns: 4;
+      width: calc(100% - 40px);
+      columns: 4;
     }
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     .container {
-        columns: 3;
+      columns: 3;
     }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     .container {
-        columns: 2;
+      columns: 2;
     }
-}
+  }
+  

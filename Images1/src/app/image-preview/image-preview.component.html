@@ -1,8 +1,10 @@
 <div class="modal">
   <div class="modal-content">
     <div class="header">
-      <h1 class="file-name">{{imageName}}</h1> 
+      <h1 class="file-name">{{imageName}}</h1>
+      <div class="edit">
       <button (click)="btnEdit(this.baseUrl)" class="btn-primary edit-button"><i class="fa fa-edit"></i></button>
+    </div>
       <button (click)="cls()" class="return-button"><i class="fa fa-times"></i></button>
     </div>
     <div class="body">       

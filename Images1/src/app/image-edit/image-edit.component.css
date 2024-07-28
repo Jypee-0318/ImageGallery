@@ -2,40 +2,63 @@
 #wrapperDiv {
     width: 70rem;
     height: 50rem;
-    background-color: #fff; /* Light background for contrast */
-    border: 2px solid #FBCEB1; /* Subtle border using the specified color */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    padding: 20px; /* Padding for spacing */
+    background-color: #fff;
+    border: 2px solid #FBCEB1;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensure content does not overflow */
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #f7f7f7, #fbceba); /* Soft gradient background */
 }
 
 /* Button Style */
 .save-curr {
-    background-color: #FBCEB1; /* Matching background color */
-    color: white; /* Text color for contrast */
+    background-color: #FBCEB1;
+    color: white;
     border: none;
     border-radius: 8px;
     padding: 12px 20px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10; /* Ensure button stays on top */
 }
 
 /* Button Hover Effects */
 .save-curr:hover {
-    background-color: #f9bfa5; /* Slightly darker shade on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+    background-color: #f9bfa5;
+    transform: scale(1.05);
 }
 
 /* Image Editor Styles */
 ejs-imageeditor {
     width: 100%;
     height: 100%;
-    border-radius: 12px; /* Rounded corners */
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Inner shadow for depth */
+    background: #ffffff; /* Ensuring background color */
+}
+
+/* Additional Styling for Aesthetic Enhancement */
+body {
+    font-family: 'Arial', sans-serif; /* Clean font */
+    background-color: #f0f0f0; /* Soft background color for the entire page */
+    color: #333; /* Text color for better readability */
+}
+
+button:focus {
+    outline: none; /* Remove default button focus outline */
+}
+
+.save-curr:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Custom focus effect */
 }
