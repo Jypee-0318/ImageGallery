@@ -5,7 +5,7 @@
   height: 100vh;
   margin: 0;
   background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
   
   .form-container {
@@ -19,42 +19,47 @@
   
   input[type="text"],
   input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: border 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
   }
   
   input[type="text"]:focus,
   input[type="password"]:focus {
-    border: 1px solid #FBCEB1;
-    outline: none;
+  border: 1px solid #FBCEB1;
+  box-shadow: 0 0 8px rgba(251, 206, 177, 0.5);
+  outline: none;
   }
   
   button.signup {
-    background-color: #FBCEB1;
-    border: none;
-    color: white;
-    padding: 10px;
-    width: 100%;
-    margin: 10px 0;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
+  background-color: #FBCEB1;
+  border: none;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
   
   button.signup:hover {
-    background-color: #fba381;
+  background-color: #fba381;
+  transform: translateY(-2px);
   }
   
   a {
     color: #FBCEB1;
-    text-decoration: none;
-    font-size: 14px;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 10px;
   }
   
   a:hover {
